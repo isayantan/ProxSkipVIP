@@ -1,5 +1,7 @@
 # ProxSkipVIP
 
+## Details on files
+
 ### Quad.py
 Define a class for data generation of distributed Quadratic min-max optimization problem.
 
