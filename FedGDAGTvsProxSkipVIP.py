@@ -11,7 +11,7 @@ import Quad
 import matplotlib.pyplot as plt
 
 ### Iteration and communication
-n_comm = 50          # number of communication rounds
+n_comm = 100         # number of communication rounds
 
 ### Initialize paramters
 n_node = 16          # number of nodes
@@ -26,11 +26,11 @@ measure = QuadraticGame.optdist             # distance of current update from x*
 ### ProxSkipVIP
 
 ### Initialize hyperparameters
-gamma = 1e-1         # stepsize \gamma
-prob_comm = .01      # communication probability
+gamma = 1e-3            # stepsize \gamma
+prob_comm = .001      # communication probability
 
 ### Initialize variables
-x, control, xhat = np.zeros((3, n_node, n_feature))    # local var, control var
+x, control, xhat, xdash = np.zeros((4, n_node, n_feature))    # local var, control var
 ProxSkipVIPhist = []                                   # stores the distance to optimality
 comm = 0                                               # number of communication
 
@@ -40,8 +40,9 @@ while comm < n_comm:
         comm += 1                                      # for \theta = 1, take a communication step
         for node in range(n_node):
             xhat[node] = x[node] - gamma * (dF(x[node], node) - control[node])      # compute local xhat for each node
+            xdash[node] = xhat[node] - (gamma/ prob_comm) * control[node]
         for node in range(n_node):
-            x[node] = np.mean(xhat, axis = 0)                                       # update local variable with the mean of all variable
+            x[node] = np.mean(xdash, axis = 0)                                       # update local variable with the mean of all variable
             control[node] += (prob_comm/ gamma) * (x[node] - xhat[node])            # update the local control variates
         ProxSkipVIPhist.append(measure(np.mean(x, axis = 0)))                       # store the distance to optimality
     else:
@@ -52,7 +53,7 @@ ProxSkipVIPhist = np.array(ProxSkipVIPhist)
 ### FedGDA-GT
 
 ### Initialize hyperparameters
-gamma = 1e-1
+gamma = 1e-3
 local_step = int(np.ceil(1/prob_comm))
 
 ### Initialize variables
