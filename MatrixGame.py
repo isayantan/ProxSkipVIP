@@ -49,7 +49,6 @@ class MatrixGame():
         """
         Compute the duality gap max_y f(x, y) - min_x f(x, y)
         """
-        
         x1 = x[:self.row]
         x2 = x[self.row:]
         primal = linprog(c = self.A @ x2, A_eq = np.ones(self.row), b_eq = 1)
