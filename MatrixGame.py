@@ -51,8 +51,8 @@ class MatrixGame():
         """
         x1 = x[:self.row]
         x2 = x[self.row:]
-        primal = linprog(c = (self.A @ x2).tolist(), A_eq = [1]*self.row, b_eq = [1])
-        dual = linprog(c = (-np.transpose(self.A) @ x1).tolist(), A_eq = [1]*self.col, b_eq = [1])
+        primal = linprog(c = (self.A @ x2).tolist(), A_eq = [[1]*self.row], b_eq = [1])
+        dual = linprog(c = (-np.transpose(self.A) @ x1).tolist(), A_eq = [[1]*self.col], b_eq = [1])
         return - (dual + primal)
     
         
