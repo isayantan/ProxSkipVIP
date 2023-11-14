@@ -35,24 +35,24 @@ class MatrixGame():
     
     def generate_mx(self):
         """
-        Returns the matrices for each node
+        Return the matrices for each node
         """
         return self.M_node
     
     def grad(self, x, node):
         """
-        Returns operator computed at a given node
+        Return operator computed at a given node
         """
         return self.M_node[node]@x
     
     def optdist(self, x):
         """
-        Compute the duality gap max_y f(x, y) - min_x f(x, y)
+        Return duality gap max_y f(x, y) - min_x f(x, y)
         """
         x1 = x[:self.row]
         x2 = x[self.row:]
         primal = linprog(c = self.A @ x2, A_eq = np.ones(self.row), b_eq = 1)
-        dual = linprog(c = , A_eq = np.ones(self.col), b_eq = 1)
+        dual = linprog(c = self.A @ x1, A_eq = np.ones(self.col), b_eq = 1)
         return primal - dual
     
         
