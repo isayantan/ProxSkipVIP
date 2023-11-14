@@ -34,9 +34,15 @@ class MatrixGame():
         self.A = self.M[:self.row, self.row:]
     
     def generate_mx(self):
+        """
+        Returns the matrices for each node
+        """
         return self.M_node
     
     def grad(self, x, node):
+        """
+        Returns operator computed at a given node
+        """
         return self.M_node[node]@x
     
     def optdist(self, x):
