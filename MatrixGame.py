@@ -16,9 +16,12 @@ class MatrixGame():
         self.game = game
         
         if self.game == 'PolicemenBurglar':
+            """
+            A_ij = w_i * (1 - exp(-theta * |i - j|)) where w_i = |w_i^'| with w_i^' ~ N(0, 1)
+            """
             np.random.seed(0)
-            theta = .8
-            M_node = []
+            theta = .8       # set \theta = 0.8
+            M_node = []      # stores full block matrix for each node
             for _ in range(self.node):
                 A = np.zeros((self.row, self.col))
                 for i in range(self.row):
@@ -26,7 +29,9 @@ class MatrixGame():
                         A[i, j] = np.abs(np.random.normal(0, 1)) * (1 - np.exp(-theta * np.abs(i - j)))
                 M_node.append(np.block([[np.zeros((self.row, self.row)), A], [-np.transpose(A), np.zeros((self.col, self.col))]]))
         self.M_node = M_node
-                    
+    
+    def generate_mx(self):
+        return self.M_node
     
     def grad(self, x, node):
         return self.M_node[node]@x
