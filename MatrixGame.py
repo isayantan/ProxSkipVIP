@@ -45,7 +45,7 @@ class MatrixGame():
         """
         return self.M_node[node]@x
     
-    def optdist(self, x):
+    def dualgap(self, x):
         """
         Return duality gap max_y f(x, y) - min_x f(x, y)
         """
