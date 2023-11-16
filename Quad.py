@@ -23,6 +23,7 @@ class QuadGame():
         M_node_data, z_node_data = [], []
         mu_node, L_node = [],[]
         cocoercive_data = []
+        cocoercive_node = []
         for node in range(self.n_node):
             A_node_data, B_node_data, C_node_data = [], [], []
             for _ in range(n_data):
@@ -43,15 +44,19 @@ class QuadGame():
                 
                 M_node_data.append(np.block([[A_node_data[-1], B_node_data[-1]],[-B_node_data[-1], C_node_data[-1]]]))
                 z_node_data.append(np.concatenate((np.random.normal(0,1,self.n_feature), np.random.normal(0,1,self.n_feature))))
-                eval_data = np.linalg.eig(M_node_data[-1])[0]
-                cocoercive_data.append(1/np.min(np.real(1/eval_data[np.abs(eval_data) > 1e-5])))   
+                eval_data = np.linalg.eig(M_node_data[-1])[0]                                     # compute eigenvalue of each data
+                cocoercive_data.append(1/np.min(np.real(1/eval_data[np.abs(eval_data) > 1e-5])))  # store cocoercive constant for each data  
+            
             A_node.append(np.mean(A_node_data, axis = 0))
             B_node.append(np.mean(B_node_data, axis = 0))
             C_node.append(np.mean(C_node_data, axis = 0))
             M_node.append(np.block([[A_node[-1], B_node[-1]],[-B_node[-1], C_node[-1]]]))
+            eval_node = np.linalg.eig(M_node[-1])[0]                                              # compute eigenvalue of M
+            cocoercive_node.append(1/np.min(np.real(1/eval_node[np.abs(eval_node) > 1e-5])))      # store cocoercive constant for each node
             mu_node.append(np.min((np.linalg.eig(A_node[-1])[0], np.linalg.eig(C_node[-1])[0])))
             L_node.append(np.sqrt(max(np.linalg.eig(M_node[-1].T @ M_node[-1])[0])))
-        self.x_optimal = - np.linalg.inv(np.mean(M_node_data, axis = 0)) @ np.mean(z_node_data, axis = 0)
+        
+        self.x_optimal = - np.linalg.inv(np.mean(M_node_data, axis = 0)) @ np.mean(z_node_data, axis = 0)      # store optimal solution of Quad game
         self.lipschitz = np.sqrt(np.max(np.linalg.eig(np.mean(M_node, axis = 0).T @ np.mean(M_node, axis = 0))[0]))
         self.M_node = np.array(M_node)
         self.z_node = np.array(z_node)
