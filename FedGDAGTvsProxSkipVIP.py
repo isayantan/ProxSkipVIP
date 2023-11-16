@@ -27,7 +27,7 @@ measure = QuadraticGame.optdist             # distance of current update from x*
 
 ### Initialize hyperparameters
 gamma = 1e-3            # stepsize \gamma
-prob_comm = .001      # communication probability
+prob_comm = .001        # communication probability
 
 ### Initialize variables
 x, control, xhat, xdash = np.zeros((4, n_node, n_feature))    # local var, control var
