@@ -7,6 +7,7 @@ Created on Mon Nov 13 13:53:38 2023
 """
 
 import numpy as np
+from scipy.optimize import linprog
 
 class QuadGame():
     def __init__(self, n_feature, n_node, n_data, L = 1, mu = 0.01, method = 'full batch', q = 1, mini_batch = 1):
@@ -96,3 +97,51 @@ class QuadGame():
         Note that, here we assume x_0 = 0.
         """
         return np.sum((x - self.x_optimal)**2)/np.sum((self.x_optimal)**2)     
+    
+    
+    
+class MatrixGame():
+    def __init__(self, row, col, n_node, game = 'PolicemenBurglar'):
+        self.row = row
+        self.col = col
+        self.node = n_node
+        self.game = game
+        
+        if self.game == 'PolicemenBurglar':
+            """
+            A_ij = w_i * (1 - exp(-theta * |i - j|)) where w_i = |w_i^'| with w_i^' ~ N(0, 1)
+            """
+            np.random.seed(0)
+            theta = .8       # set \theta = 0.8
+            M_node = []      # stores full block matrix for each node
+            for _ in range(self.node):
+                A = np.zeros((self.row, self.col))
+                for i in range(self.row):
+                    for j in range(self.col):
+                        A[i, j] = np.abs(np.random.normal(0, 1)) * (1 - np.exp(-theta * np.abs(i - j)))
+                M_node.append(np.block([[np.zeros((self.row, self.row)), A], [-np.transpose(A), np.zeros((self.col, self.col))]]))
+        self.M_node = M_node
+        self.M = np.mean(M_node, axis = 0)
+        self.A = self.M[:self.row, self.row:]
+    
+    def generate_mx(self):
+        """
+        Return the matrices for each node
+        """
+        return self.M_node
+    
+    def grad(self, x, node):
+        """
+        Return operator computed at a given node
+        """
+        return self.M_node[node]@x
+    
+    def dualgap(self, x):
+        """
+        Return duality gap max_y f(x, y) - min_x f(x, y)
+        """
+        x1 = x[:self.row]
+        x2 = x[self.row:]
+        primal = linprog(c = (self.A @ x2).tolist(), A_eq = [[1]*self.row], b_eq = [1]).fun             # solve a linear prog to compute primal
+        dual = linprog(c = (-np.transpose(self.A) @ x1).tolist(), A_eq = [[1]*self.col], b_eq = [1]).fun   # solve a linear prog to compute dual
+        return - (dual + primal)

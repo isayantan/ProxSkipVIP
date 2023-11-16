@@ -7,7 +7,7 @@ Created on Mon Nov 13 13:55:28 2023
 """
 
 import numpy as np
-import Quad
+from model import QuadGame 
 import matplotlib.pyplot as plt
 
 ### Iteration and communication
@@ -19,9 +19,9 @@ n_feature = 10       # dimension of data
 n_data = 100         # size of dataset
 
 ### Initialize based on model
-QuadraticGame = Quad.QuadGame(n_feature, n_node, n_data, method = 'mini batch', mini_batch=100)
-dF = QuadraticGame.grad
-measure = QuadraticGame.optdist             # distance of current update from x*
+game = QuadGame(n_feature, n_node, n_data, method = 'full batch')
+dF = game.grad
+measure = game.optdist             # distance of current update from x*
 
 ### ProxSkipVIP
 

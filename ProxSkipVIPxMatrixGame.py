@@ -8,7 +8,7 @@ Created on Tue Nov 14 23:21:13 2023
 
 import numpy as np
 from ProximalOperator import projection_simplex_sort
-from MatrixGame import MatrixGame
+from model import MatrixGame
 import matplotlib.pyplot as plt
 
 ### Iteration and communication
