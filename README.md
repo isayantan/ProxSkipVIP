@@ -14,4 +14,4 @@
 * ### model.py
   Define a class for data generation of distributed min-max optimization problems. Included min-max problems are
   - Quadratic Game.
-  - Matrix Game (like Policemen Burglar Problem)
+  - Matrix Game (like Policemen Burglar game)
