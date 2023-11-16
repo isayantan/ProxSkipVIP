@@ -59,8 +59,8 @@ class QuadGame():
             M_node.append(np.block([[A_node[-1], B_node[-1]],[-B_node[-1], C_node[-1]]]))
             eval_node = np.linalg.eig(M_node[-1])[0]                                              # compute eigenvalue of M
             cocoercive_node.append(1/np.min(np.real(1/eval_node[np.abs(eval_node) > 1e-5])))      # store cocoercive constant for each node
-            mu_node.append(np.min((np.linalg.eig(A_node[-1])[0], np.linalg.eig(C_node[-1])[0])))
-            L_node.append(np.sqrt(max(np.linalg.eig(M_node[-1].T @ M_node[-1])[0])))
+            mu_node.append(np.min((np.linalg.eig(A_node[-1])[0], np.linalg.eig(C_node[-1])[0])))  # store \mu for each node
+            L_node.append(np.sqrt(max(np.linalg.eig(M_node[-1].T @ M_node[-1])[0])))              # store lipschitz constant for each node
             a_node.append(np.mean(a_node_data, axis=0))
             c_node.append(np.mean(c_node_data, axis=0))
             z_node.append(np.concatenate((a_node[-1], c_node[-1])))
@@ -71,6 +71,9 @@ class QuadGame():
         self.z_node = np.array(z_node)
         self.M_node_data = np.array(M_node_data)
         self.z_node_data = np.array(z_node_data)
+        self.cocoercive_node = np.array(cocoercive_node)
+        self.mu_node = np.array(mu_node)
+        self.L_node = np.array(L_node)
         
     def grad(self, x, node, last_update = None):
         """

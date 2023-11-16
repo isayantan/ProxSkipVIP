@@ -11,23 +11,23 @@ from model import QuadGame
 import matplotlib.pyplot as plt
 
 ### Iteration and communication
-n_comm = 100         # number of communication rounds
+n_comm = 50         # number of communication rounds
 
 ### Initialize paramters
-n_node = 16          # number of nodes
+n_node = 16         # number of nodes
 n_feature = 10       # dimension of data
 n_data = 100         # size of dataset
 
 ### Initialize based on model
 game = QuadGame(n_feature, n_node, n_data, method = 'full batch')
 dF = game.grad
-measure = game.optdist             # distance of current update from x*
+measure = game.optdist             # relative distance of current update from x*
 
 ### ProxSkipVIP
 
 ### Initialize hyperparameters
-gamma = 1e-3            # stepsize \gamma
-prob_comm = .001        # communication probability
+gamma = 1/max(game.cocoercive_node)            # stepsize \gamma
+prob_comm = np.sqrt(gamma * min(game.mu_node))       # communication probability
 
 ### Initialize variables
 x, control, xhat, xdash = np.zeros((4, n_node, n_feature))    # local var, control var
@@ -53,8 +53,10 @@ ProxSkipVIPhist = np.array(ProxSkipVIPhist)
 ### FedGDA-GT
 
 ### Initialize hyperparameters
-gamma = 1e-3
-local_step = int(np.ceil(1/prob_comm))
+# local_step = int(np.ceil(1/prob_comm))
+local_step = 20
+root = np.roots([-max(game.L_node**4)*local_step**4, 0, -2*max(game.L_node**2)*local_step**2, min(game.mu_node)*local_step, 0])
+gamma = .5 * min((2 * min(game.mu_node))/(max(game.L_node)**2), 1/(2 * min(game.mu_node) * local_step), min(root[np.where((root.imag == 0) & (root.real > 0))].real))
 
 ### Initialize variables
 x = np.zeros((n_node, n_feature))                       # local var
@@ -80,7 +82,7 @@ FedGDAGThist = np.array(FedGDAGThist)
 
 ### Plot the Trajectories
 marker = np.arange(0, n_comm, n_comm/10, dtype='int')
-plt.plot(np.arange(n_comm), ProxSkipVIPhist, '-gd', markevery = marker, label = 'ProxSkipVIP')
+plt.plot(np.arange(n_comm), ProxSkipVIPhist, '-gd', markevery = marker, label = 'ProxSkip-SGDA-FL')
 plt.plot(np.arange(n_comm), FedGDAGThist, '-rs', markevery = marker, label = 'FedGDA-GT')
 
 ### Plot Formatting
