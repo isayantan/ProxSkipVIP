@@ -50,6 +50,12 @@ while comm < n_comm:
             x[node] -= gamma * (dF(x[node], node) - control[node])                  # update local variable with gradient step and keep control variate same
 ProxSkipVIPhist = np.array(ProxSkipVIPhist)
 
+"""
+We implement the FedGDA-GT algorihtm from https://arxiv.org/pdf/2206.01132.pdf, which uses gradient tracking technique with local steps.
+
+We use the theoretical step size choices from the page 20 of that paper.
+"""
+
 ### FedGDA-GT
 
 ### Initialize hyperparameters
