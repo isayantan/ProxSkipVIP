@@ -7,6 +7,7 @@ Created on Mon Nov 13 13:53:38 2023
 """
 
 import numpy as np
+
 class QuadGame():
     def __init__(self, n_feature, n_node, n_data, L = 1, mu = 0.01, method = 'full batch', q = 1, mini_batch = 1):
         self.n_feature = int(n_feature/2)
@@ -64,6 +65,11 @@ class QuadGame():
         self.z_node_data = np.array(z_node_data)
         
     def grad(self, x, node, last_update = None):
+        """
+        Computes gradient estimate.
+        
+        Use last_update for variance-reduced type method. 
+        """
         if self.method == 'full batch':
             return self.M_node[node]@x + np.mean(self.z_node_data[np.arange(node*self.n_data, (node+1)*self.n_data)], axis=0)
         elif self.method == 'mini batch':
@@ -75,4 +81,9 @@ class QuadGame():
             return result
     
     def optdist(self, x):
-        return np.sum((x - self.x_optimal)**2)/np.sum((self.x_optimal)**2)
+        """
+        Computes the relative error.
+        
+        Note that, here we assume x_0 = 0.
+        """
+        return np.sum((x - self.x_optimal)**2)/np.sum((self.x_optimal)**2)     
