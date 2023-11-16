@@ -59,7 +59,7 @@ ProxSkipVIPhist = np.array(ProxSkipVIPhist)
 
 ### Plot the Trajectories
 marker = np.arange(0, n_comm, n_comm/10, dtype='int')
-plt.plot(np.arange(n_comm), ProxSkipVIPhist, '-gd', markevery = marker, label = 'ProxSkipVIP')
+plt.plot(np.arange(n_comm), ProxSkipVIPhist, '-gd', markevery = marker, label = 'ProxSkip-SGDA-FL')
 
 ### Plot Formatting
 plt.grid(True)

@@ -117,15 +117,19 @@ class MatrixGame():
             np.random.seed(0)
             theta = .8       # set \theta = 0.8
             M_node = []      # stores full block matrix for each node
+            cocoercive_node = []
             for _ in range(self.node):
                 A = np.zeros((self.row, self.col))
                 for i in range(self.row):
                     for j in range(self.col):
                         A[i, j] = np.abs(np.random.normal(0, 1)) * (1 - np.exp(-theta * np.abs(i - j)))
                 M_node.append(np.block([[np.zeros((self.row, self.row)), A], [-np.transpose(A), np.zeros((self.col, self.col))]]))
+                # eval_node = np.linalg.eig(M_node[-1])[0]
+                # cocoercive_node.append(1/np.min(np.real(1/eval_node[np.abs(eval_node) > 1e-5])))      # store cocoercive constant for each node
         self.M_node = M_node
         self.M = np.mean(M_node, axis = 0)
         self.A = self.M[:self.row, self.row:]
+        self.cocoercive_node = cocoercive_node
     
     def generate_mx(self):
         """
