@@ -5,8 +5,7 @@
 ### model.py
 Define a class for data generation of distributed min-max optimization problems. Included min-max problems are
 * Quadratic Game.
-* Matrix Game
-  - Policemen Burglar Problem.
+* Matrix Game (like Policemen Burglar Problem)
 
 ### FedGDAGTvsProxSkipVIP.py
 Comparison of FedGDA-GT and ProxSkipVIP algorithm on strongly-convex strongly-concave Quadratic min-max problem.
