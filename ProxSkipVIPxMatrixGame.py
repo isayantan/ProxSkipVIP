@@ -12,7 +12,7 @@ from MatrixGame import MatrixGame
 import matplotlib.pyplot as plt
 
 ### Iteration and communication
-n_comm = 100         # number of communication rounds
+n_comm = 1000         # number of communication rounds
 
 ### Initialize paramters
 n_node = 16          # number of nodes
@@ -27,13 +27,15 @@ dF = game.grad             # computes operator
 measure = game.dualgap     # measure duality gap
 
 ### Initialize hyperparameters
-gamma = 1e-10       # stepsize \gamma
-prob_comm = 1      # communication probability
+gamma = 1e-2       # stepsize \gamma
+prob_comm = .01      # communication probability
 
 ### Initialize variables
-x, control, xhat, xdash = np.zeros((4, n_node, n_feature))    # local var, control var
-ProxSkipVIPhist = []                                   # stores the distance to optimality
-comm = 0                                               # number of communication
+x = np.random.normal(0, 1, (n_node, n_feature))
+control, xhat, xdash = np.zeros((3, n_node, n_feature))    # local var, control var
+ProxSkipVIPhist = []                                       # stores the distance to optimality
+comm = 0                                                   # number of communication
+x_sum = 0                                                  # stores the sum of x from all previous communications
 
 while comm < n_comm:
     theta = np.random.binomial(1, prob_comm)           # generate \theta from bernoulli(prob_comm)
@@ -42,12 +44,14 @@ while comm < n_comm:
         for node in range(n_node):
             xhat[node] = x[node] - gamma * (dF(x[node], node) - control[node])      # compute local xhat for each node
             xdash[node] = xhat[node] - (gamma/ prob_comm) * control[node]
-        x_comm = np.mean(xdash, axis = 0)
-        x_comm = np.concatenate((projection_simplex_sort(x_comm[:n_row], 1), projection_simplex_sort(x_comm[n_row:], 1)))
+        x_comm = np.mean(xdash, axis = 0)              # communication step: take mean of vectors from all nodes
+        x_comm = np.concatenate((projection_simplex_sort(x_comm[:n_row], 1), projection_simplex_sort(x_comm[n_row:], 1)))    # project the parts of the vectors on the probability simplex
         for node in range(n_node):
             x[node] = x_comm
             control[node] += (prob_comm/ gamma) * (x[node] - xhat[node])            # update the local control variates
-        ProxSkipVIPhist.append(measure(np.mean(x, axis = 0)))                       # store the distance to optimality
+        # x_sum += x_comm
+        # ProxSkipVIPhist.append(measure(x_sum/comm))                       # store the duality gap for average iterate
+        ProxSkipVIPhist.append(measure(x_comm))                             # store the duality gap for last iterate
     else:
         for node in range(n_node):
             x[node] -= gamma * (dF(x[node], node) - control[node])                  # update local variable with gradient step and keep control variate same
