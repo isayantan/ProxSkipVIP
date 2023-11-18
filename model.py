@@ -72,6 +72,7 @@ class QuadGame():
         self.M_node_data = np.array(M_node_data)
         self.z_node_data = np.array(z_node_data)
         self.cocoercive_node = np.array(cocoercive_node)
+        self.cocoercive_data = np.array(cocoercive_data)
         self.mu_node = np.array(mu_node)
         self.L_node = np.array(L_node)
         

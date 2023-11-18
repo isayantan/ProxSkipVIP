@@ -152,6 +152,7 @@ plt.ylabel(r'Relative Error')
 plt.xlabel('Communication Rounds')
 plt.title('Quadratic Game')
 plt.legend()
+
     
 
 
