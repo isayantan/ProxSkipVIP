@@ -140,10 +140,10 @@ Plot the Trajectories
 """
 
 marker = np.arange(0, n_comm, n_comm/10, dtype='int')
-plt.plot(np.arange(n_comm), ProxSkipVIPhist, '-gd', markevery = marker, label = 'ProxSkip-GDA-FL')
-plt.plot(np.arange(n_comm), LocalGDAhist, '-bo', markevery = marker, label = 'Local GDA')
 plt.plot(np.arange(n_comm), LocalEGhist, '-r>', markevery = marker, label = 'Local EG')
-plt.plot(np.arange(n_comm), FedGDAGThist, '-ms', markevery = marker, label = 'FedGDA-GT')
+plt.plot(np.arange(n_comm), LocalGDAhist, '-bo', markevery = marker, label = 'Local GDA')
+plt.plot(np.arange(n_comm), FedGDAGThist, '-cs', markevery = marker, label = 'FedGDA-GT')
+plt.plot(np.arange(n_comm), ProxSkipVIPhist, '-gd', markevery = marker, label = 'ProxSkip-GDA-FL')
 
 ### Plot Formatting
 plt.grid(True)
