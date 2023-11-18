@@ -62,7 +62,7 @@ a = 2048 * local_step * ((max(game.L_node)/min(game.mu_node))**2)   # constant f
 
 ### Initialize variables
 x = np.zeros((n_node, n_feature))                                   # local var
-global_x = np.zeros(n_node)                                         # global var
+global_x = np.zeros(n_feature)                                         # global var
 LocalGDAhist = []                                                   # stores the distance to optimality
 comm = 0                                                            # number of communication
 
