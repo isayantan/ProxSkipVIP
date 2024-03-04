@@ -65,4 +65,4 @@ In figure 5, we compare ProxSkip-SGDA-FL with ProxSkip-L-SVRGDA-FL for tuned and
 In figure 7, we compare the perfromance of ProxSkip-VIP-FL, Local GDA and Local EG on data with varying heterogenity. To reproduce the plots of figure 7, please run the notebook [ProxSkip_Varying_Heterogenety.ipynb](ProxSkip_Varying_Heterogenety.ipynb).
 
 ## Games
-If you want to test the different optimizers on your own game, use ```QuadGame()``` to generate a quadratic game and ```MatrixGame()``` to generate a matrix game from [model.py](model.py).
+If you want to test the different optimizers on your own game, use ```QuadGame()``` to generate a quadratic game and ```MatrixGame()``` to generate a matrix game from [model.py](model.py). You need to use the ```grad``` method to return oracles evaluated a particular value for the game.
