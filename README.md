@@ -1,17 +1,7 @@
-# ProxSkipVIP
+# Communication-Efficient Gradient Descent-Accent Methods for Distributed Variational Inequalities: Unified Analysis and Local Updates
 
-## Details of Files
+This repository documents the code to reproduce the experiments reported in the paper:
 
-* ### FedGDAGTvsProxSkipVIP.py
-  Comparison of FedGDA-GT and ProxSkipVIP algorithm on strongly-convex strongly-concave Quadratic min-max problem.
+> Communication-Efficient Gradient Descent-Accent Methods for Distributed Variational Inequalities: Unified Analysis and Local Updates
 
-* ### ProximalOperator.py
-  Functions for computing proximal operators of some typical constraints. Like projection onto [probability simplex](https://gist.github.com/mblondel/6f3b7aaad90606b98f71). 
-
-* ### ProxSkipVIPxMatrixGame.py
-  Implement ProxSkipVIP on distributed matrix game.
-
-* ### model.py
-  Define a class for data generation of distributed min-max optimization problems. Included min-max problems are
-  - Quadratic Game.
-  - Matrix Game (like Policemen Burglar game)
+In this paper, we provide a unified convergence analysis of communication-efficient local training methods for distributed variational inequality problems (VIPs). 
