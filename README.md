@@ -38,13 +38,17 @@ The required Python packages for running the files are listed below
  * ```numpy```
  * ```matplotlib```
  * ```math```
+ * ```time```
+ * ```pandas```
+ * ```sklearn.datasets```
 
 ## Strongly-monotone Quadratic Games
 
-In figure 1 of our work we compare the performance of ProxSkip_GDA-FL with Local GDA and Local EG. Please the run the code in [QuadxDet.py](QuadxDet.py) and [QuadxStoch.py](QuadxStoch1.py) for deterministic and stochastic setting respectively. 
+In figure 1 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) on strongly-monotone quadratic games. Please the run the code in [QuadxDet.py](QuadxDet.py) and [QuadxStoch.py](QuadxStoch1.py) for deterministic and stochastic setting respectively. 
 
 ## Robust Least Square
 
+In figure 2 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) for Robust Least Square problems. Please the run the code in [RLS_Dataset2.ipynb](RLS_Dataset2.ipynb) to reproduce the plots of Figure 2.
 ## ProxSkip-VIP-FL vs ProxSkip-L-SVRGDA-FL
 
 ## Low vs High Heterogeneity
