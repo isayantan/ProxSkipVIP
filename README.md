@@ -54,5 +54,5 @@ In figure 2 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-
 ## Low vs High Heterogeneity
 
 ## Performance on Data with Varying Heterogeneity
-
+In figure 7, we compare the perfromance of ProxSkip-VIP-FL, Local GDA and Local EG on data with varying heterogenity. To reproduce the plots of figure 7, please run the notebook [ProxSkip_Varying_Heterogenety.ipynb](ProxSkip_Varying_Heterogenety.ipynb).
 
