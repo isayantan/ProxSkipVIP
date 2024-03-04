@@ -42,6 +42,7 @@ The required Python packages for running the files are listed below
  * ```pandas```
  * ```sklearn.datasets```
  * ```seaborn```
+ * ```scipy.optimize```
 
 ## Strongly-monotone Quadratic Games
 
