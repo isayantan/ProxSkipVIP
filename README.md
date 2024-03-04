@@ -48,7 +48,7 @@ In figure 1 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-
 
 ## Robust Least Square
 
-In figure 2 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) for Robust Least Square problems. Please the run the code in [RLS_Dataset2.ipynb](RLS_Dataset2.ipynb) to reproduce the plots of Figure 2.
+In figures 2 and 3 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) for Robust Least Square problems. Please the run the code in [RLS_Dataset2.ipynb](RLS_Dataset2.ipynb) and [RLS_Dataset1.ipynb](RLS_Dataset1.ipynb) to reproduce the plots of figures 2 and 3 respectively.
 
 ## ProxSkip-VIP-FL vs ProxSkip-L-SVRGDA-FL
 
