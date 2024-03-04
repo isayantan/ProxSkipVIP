@@ -41,7 +41,7 @@ The required Python packages for running the files are listed below
 
 ## Strongly-monotone Quadratic Games
 
-In figure 1 of our work we compare the performance of ProxSkip_GDA-FL with Local GDA and Local EG. Please the run the code in 
+In figure 1 of our work we compare the performance of ProxSkip_GDA-FL with Local GDA and Local EG. Please the run the code in [QuadxDet.py](QuadxDet.py) and to 
 
 ## Robust Least Square
 
