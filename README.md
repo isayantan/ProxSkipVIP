@@ -49,6 +49,10 @@ In figure 1 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-
 
 In figures 2 and 3 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) for Robust Least Square problems. Please the run the code in [RLS_Dataset2.ipynb](RLS_Dataset2.ipynb) and [RLS_Dataset1.ipynb](RLS_Dataset1.ipynb) to reproduce the plots of figures 2 and 3 respectively.
 
+## ProxSkip
+
+In figure 4, we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) on the strongly monotone quadratic game using tuned stepsizes. To reproduce the plots of figure 4, please run the notebook [ProxSkip_tuned_HeterogeneousData.ipynb](ProxSkip_tuned_HeterogeneousData.ipynb). 
+
 ## ProxSkip-VIP-FL vs ProxSkip-L-SVRGDA-FL
 
 In figure 5, we compare ProxSkip-SGDA-FL with ProxSkip-L-SVRGDA-FL for tuned and theoretical step-sizes. Please run the notebooks [ProxSkip SVRGDA vs ProxSkip with tuned stepsizes.ipynb](ProxSkip SVRGDA vs ProxSkip with tuned stepsizes.ipynb) and [ProxSkip vs ProxSkip L SVRGDA Theoretical Stepsize.ipynb](ProxSkip vs ProxSkip L SVRGDA Theoretical Stepsize.ipynb) to reproduce the plots of figure 5.
