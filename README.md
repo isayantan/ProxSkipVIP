@@ -24,6 +24,8 @@ If you find our code useful, please cite our work as follow:
 
 <!--ts-->
    * [Requirements](#requirements)
+   * [Strongly-monotone Quadratic Games](#strongly-monotone-quadratic-games)
+   * 
    
 <!--te-->
 
@@ -34,5 +36,6 @@ The required Python packages for running the files are listed below
  * ```matplotlib```
  * ```math```
 
+## Strongly-monotone Quadratic Games
 
 
