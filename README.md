@@ -24,7 +24,7 @@ If you find our code useful, please cite our work as follow:
 
 <!--ts-->
    * [Requirements](#requirements)
-   * [Games](#games)
+   * [Generate Games](#generate-games)
    * [Strongly-monotone Quadratic Games](#strongly-monotone-quadratic-games)
    * [Robust Least Square](#robust-least-square)
    * [Fine-Tuned Stepsize](#Fine-Tuned-Stepsize)
@@ -45,7 +45,7 @@ The required Python packages for running the files are listed below
  * ```seaborn```
  * ```scipy.optimize```
 
-## Games
+## Generate Games
 If you want to test the different optimizers on your own game, use ```QuadGame()``` to generate a quadratic game and ```MatrixGame()``` to generate a matrix game from [model.py](model.py). You need to use the ```grad``` method to return oracles evaluated at a particular value for the game.
 
 ## Strongly-monotone Quadratic Games
