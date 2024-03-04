@@ -26,6 +26,7 @@ If you find our code useful, please cite our work as follow:
    * [Requirements](#requirements)
    * [Strongly-monotone Quadratic Games](#strongly-monotone-quadratic-games)
    * [Robust Least Square](#robust-least-square)
+   * [Fine-Tuned Stepsize](#Fine-Tuned-Stepsize)
    * [ProxSkip-VIP-FL vs ProxSkip-L-SVRGDA-FL](#ProxSkip-VIP-FL-vs-ProxSkip-L-SVRGDA-FL)
    * [Performance on Data with Varying Heterogeneity](Performance-on-Data-with-Varying-Heterogeneity)
    
@@ -49,7 +50,7 @@ In figure 1 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-
 
 In figures 2 and 3 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) for Robust Least Square problems. Please the run the code in [RLS_Dataset2.ipynb](RLS_Dataset2.ipynb) and [RLS_Dataset1.ipynb](RLS_Dataset1.ipynb) to reproduce the plots of figures 2 and 3 respectively.
 
-## ProxSkip
+## Fine-Tuned Stepsize
 
 In figure 4, we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) on the strongly monotone quadratic game using tuned stepsizes. To reproduce the plots of figure 4, please run the notebook [ProxSkip_tuned_HeterogeneousData.ipynb](ProxSkip_tuned_HeterogeneousData.ipynb). 
 
