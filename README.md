@@ -8,6 +8,16 @@ In this paper, we provide a unified convergence analysis of communication-effici
 
 ![ProxSkipVIPFLalgo](image/ProxSkipVIPFLalgo.png)
 
+If you find our code useful, please cite our work as follow:
+
+> @article{zhang2023communication,
+  title={Communication-Efficient Gradient Descent-Accent Methods for Distributed Variational Inequalities: Unified Analysis and Local Updates},
+  author={Zhang, Siqi and Choudhury, Sayantan and Stich, Sebastian U and Loizou, Nicolas},
+  journal={arXiv preprint arXiv:2306.05100},
+  year={2023}
+}
+
+
 ## Table of Contents
 
 <!--ts-->
@@ -21,3 +31,6 @@ The required Python packages for running the files are listed below
  * ```numpy```
  * ```matplotlib```
  * ```math```
+
+
+
