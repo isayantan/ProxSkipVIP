@@ -25,7 +25,7 @@ If you find our code useful, please cite our work as follow:
 <!--ts-->
    * [Requirements](#requirements)
    * [Strongly-monotone Quadratic Games](#strongly-monotone-quadratic-games)
-   * 
+   * [Robust Least Square](#robust-least-square)
    
 <!--te-->
 
@@ -37,5 +37,7 @@ The required Python packages for running the files are listed below
  * ```math```
 
 ## Strongly-monotone Quadratic Games
+
+## Robust Least Square
 
 
