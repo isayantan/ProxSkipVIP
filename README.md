@@ -24,6 +24,7 @@ If you find our code useful, please cite our work as follow:
 
 <!--ts-->
    * [Requirements](#requirements)
+   * [Games](#games)
    * [Strongly-monotone Quadratic Games](#strongly-monotone-quadratic-games)
    * [Robust Least Square](#robust-least-square)
    * [Fine-Tuned Stepsize](#Fine-Tuned-Stepsize)
@@ -44,6 +45,9 @@ The required Python packages for running the files are listed below
  * ```seaborn```
  * ```scipy.optimize```
 
+## Games
+If you want to test the different optimizers on your own game, use ```QuadGame()``` to generate a quadratic game and ```MatrixGame()``` to generate a matrix game from [model.py](model.py). You need to use the ```grad``` method to return oracles evaluated at a particular value for the game.
+
 ## Strongly-monotone Quadratic Games
 
 In figure 1 of our work we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) with Local GDA (Local SGDA) and Local EG (Local SEG) on strongly-monotone quadratic games. Please the run the code in [QuadxDet.py](QuadxDet.py) and [QuadxStoch.py](QuadxStoch1.py) for deterministic and stochastic setting respectively. 
@@ -63,6 +67,3 @@ In figure 5, we compare ProxSkip-SGDA-FL with ProxSkip-L-SVRGDA-FL for tuned and
 
 ## Performance on Data with Varying Heterogeneity
 In figure 7, we compare the perfromance of ProxSkip-VIP-FL, Local GDA and Local EG on data with varying heterogenity. To reproduce the plots of figure 7, please run the notebook [ProxSkip_Varying_Heterogenety.ipynb](ProxSkip_Varying_Heterogenety.ipynb).
-
-## Games
-If you want to test the different optimizers on your own game, use ```QuadGame()``` to generate a quadratic game and ```MatrixGame()``` to generate a matrix game from [model.py](model.py). You need to use the ```grad``` method to return oracles evaluated at a particular value for the game.
