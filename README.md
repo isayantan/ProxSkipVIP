@@ -58,7 +58,7 @@ In figure 4, we compare the performance of ProxSkip-GDA-FL (ProxSkip-SGDA-FL) wi
 
 ## ProxSkip-VIP-FL vs ProxSkip-L-SVRGDA-FL
 
-In figure 5, we compare ProxSkip-SGDA-FL with ProxSkip-L-SVRGDA-FL for tuned and theoretical step-sizes. Please run the notebooks [ProxSkip SVRGDA vs ProxSkip with tuned stepsizes.ipynb](ProxSkip SVRGDA vs ProxSkip with tuned stepsizes.ipynb) and [ProxSkip vs ProxSkip L SVRGDA Theoretical Stepsize.ipynb](ProxSkip vs ProxSkip L SVRGDA Theoretical Stepsize.ipynb) to reproduce the plots of figure 5.
+In figure 5, we compare ProxSkip-SGDA-FL with ProxSkip-L-SVRGDA-FL for tuned and theoretical step-sizes. Please run the notebooks [ProxSkip SVRGDA vs ProxSkip with tuned stepsizes.ipynb](https://github.com/isayantan/ProxSkipVIP/blob/main/ProxSkip%20SVRGDA%20vs%20ProxSkip%20with%20tuned%20stepsizes.ipynb) and [ProxSkip vs ProxSkip L SVRGDA Theoretical Stepsize.ipynb](ProxSkip vs ProxSkip L SVRGDA Theoretical Stepsize.ipynb) to reproduce the plots of figure 5.
 
 
 ## Performance on Data with Varying Heterogeneity
