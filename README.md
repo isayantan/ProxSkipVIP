@@ -27,7 +27,6 @@ If you find our code useful, please cite our work as follow:
    * [Strongly-monotone Quadratic Games](#strongly-monotone-quadratic-games)
    * [Robust Least Square](#robust-least-square)
    * [ProxSkip-VIP-FL vs ProxSkip-L-SVRGDA-FL](#ProxSkip-VIP-FL-vs-ProxSkip-L-SVRGDA-FL)
-   * [Low vs High Heterogeneity](Low-vs-High-Heterogeneity)
    * [Performance on Data with Varying Heterogeneity](Performance-on-Data-with-Varying-Heterogeneity)
    
 <!--te-->
@@ -54,7 +53,6 @@ In figures 2 and 3 of our work we compare the performance of ProxSkip-GDA-FL (Pr
 
 In figure 5, we compare ProxSkip-SGDA-FL with ProxSkip-L-SVRGDA-FL for tuned and theoretical step-sizes. Please run the notebooks [ProxSkip SVRGDA vs ProxSkip with tuned stepsizes.ipynb](ProxSkip SVRGDA vs ProxSkip with tuned stepsizes.ipynb) and [ProxSkip vs ProxSkip L SVRGDA Theoretical Stepsize.ipynb](ProxSkip vs ProxSkip L SVRGDA Theoretical Stepsize.ipynb) to reproduce the plots of figure 5.
 
-## Low vs High Heterogeneity
 
 ## Performance on Data with Varying Heterogeneity
 In figure 7, we compare the perfromance of ProxSkip-VIP-FL, Local GDA and Local EG on data with varying heterogenity. To reproduce the plots of figure 7, please run the notebook [ProxSkip_Varying_Heterogenety.ipynb](ProxSkip_Varying_Heterogenety.ipynb).
