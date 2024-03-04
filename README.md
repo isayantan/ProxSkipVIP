@@ -27,6 +27,8 @@ If you find our code useful, please cite our work as follow:
    * [Strongly-monotone Quadratic Games](#strongly-monotone-quadratic-games)
    * [Robust Least Square](#robust-least-square)
    * [ProxSkip-VIP-FL vs ProxSkip-L-SVRGDA-FL](#ProxSkip-VIP-FL-vs-ProxSkip-L-SVRGDA-FL)
+   * [Low vs High Heterogeneity](Low-vs-High-Heterogeneity)
+   * [Performance on Data with Varying Heterogeneity](Performance-on-Data-with-Varying-Heterogeneity)
    
 <!--te-->
 
@@ -42,5 +44,9 @@ The required Python packages for running the files are listed below
 ## Robust Least Square
 
 ## ProxSkip-VIP-FL vs ProxSkip-L-SVRGDA-FL
+
+## Low vs High Heterogeneity
+
+## Performance on Data with Varying Heterogeneity
 
 
